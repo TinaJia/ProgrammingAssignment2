@@ -3,13 +3,13 @@
 # a special assignment operator: '<<-' allows variables in the function are accessible globally. 
 
 makeCacheMatrix <- function(x = matrix()) {
-        s <- NULL   # define the inverse of the matrix, which store the results later
-        # this subset function sets the objective matrix
+        s <- NULL   # define the inverse of the matrix, which stores the result later
+        # this function sets the objective matrix
         set <- function(y){
                 x <<- y
                 s <- NULL
         }
-        get <-function() x  # this function return the input matrix
+        get <-function() x  # this function returns the input matrix
         setinverse <- function(inverse) s <<-inverse  # this function sets the inverse matrix 
         getinverse <- function() s     # this function returns the inverse matrix
         list(set=set, get=get, 
@@ -19,8 +19,8 @@ makeCacheMatrix <- function(x = matrix()) {
         # a <- makeCacheMatrix(matrix_1) to set a matrix
         # a$set(matrix_2) to set a new matrix
         # a$setinverse(matrix_3)  to set the inverse matrix
-        # a$get to get the setted matrix
-        # a$getinverse to get the setted inverse matrix
+        # a$get to get the set matrix
+        # a$getinverse to get the set inverse matrix
 }
 
 
@@ -52,5 +52,5 @@ cacheSolve <- function(x, ...) {
 # to test the function
 a<-makeCacheMatrix() 
 a$set(matrix(rnorm(4),2,2))  # first set a random matrix with 2X2
-cacheSolve(a)    # after a matrix is gerenatded, this is calcualte the inverse of the matrix
-cacheSolve(a)    # this is retrieve the inverse of the matrix
+cacheSolve(a)    # after a matrix is gerenatded, calcualte the inverse of the matrix
+cacheSolve(a)    # retrieve the inverse of the matrix
